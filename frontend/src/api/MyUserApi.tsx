@@ -14,7 +14,10 @@ export const useCreateMyUser = () => {
         const accessToken = await getAccessTokenSilently();
         const res = await fetch(`${API_BASE_URL}/api/my/user`, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json'},
+            headers: {
+                Authorization: `Bearer ${accessToken}`,
+                'Content-Type': 'application/json'
+                },
             body: JSON.stringify(user)
         });
         if (!res.ok) {
