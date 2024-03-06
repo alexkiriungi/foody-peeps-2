@@ -15,7 +15,7 @@ export default function UsernameMenu() {
             <CircleUserRound className="text-orange-500" />
             {user?.email}
         </DropdownMenuTrigger>
-        <DropdownMenuContent>
+        <DropdownMenuContent className="flex flex-col justify-center gap-2 p-3">
             <DropdownMenuItem>
                 <Link to='/user-profile' className="font-bold hover:text-orange-500">
                     User Profile
