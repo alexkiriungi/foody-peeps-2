@@ -10,7 +10,7 @@ export default function DetailsSection() {
         <div className="">
             <h2 className="text-2xl font-bold">Details</h2>
             <FormDescription>
-                Enter the details about your restaurant
+                Enter details about your restaurant
             </FormDescription>
         </div>
         <FormField control={control} name="restaurantName"
