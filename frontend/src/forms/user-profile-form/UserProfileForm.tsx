@@ -1,6 +1,6 @@
 import LoadingButton from '@/components/LoadingButton';
 import { Button } from '@/components/ui/button';
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel } from '@/components/ui/form';
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
@@ -55,36 +55,40 @@ const UserProfileForm = ({ onSave, isLoading}: Props) => {
                         <FormControl>
                             <Input {...field} className='bg-white' />
                         </FormControl>
+                        <FormMessage />
                     </FormItem>
                 )} />
                 <div className='flex flex-col md:flex-row gap-4'>
                     <FormField control={form.control} name="addressLine1" 
                     render={({ field }) => (
-                        <FormItem>
+                        <FormItem className='flex-1'> 
                             <FormLabel>Address Line 1</FormLabel>
                             <FormControl>
-                                <Input {...field} disabled className='bg-white' />
+                                <Input {...field} className='bg-white' />
                             </FormControl>
+                            <FormMessage />
                         </FormItem>
                     )} />
 
                     <FormField control={form.control} name="city" 
                     render={({ field }) => (
-                        <FormItem>
+                        <FormItem className='flex-1'> 
                             <FormLabel>City</FormLabel>
                             <FormControl>
-                                <Input {...field} disabled className='bg-white' />
+                                <Input {...field} className='bg-white' />
                             </FormControl>
+                            <FormMessage />
                         </FormItem>
                     )} />
 
                     <FormField control={form.control} name="country" 
                     render={({ field }) => (
-                        <FormItem>
+                        <FormItem className='flex-1'>
                             <FormLabel>Country</FormLabel>
                             <FormControl>
-                                <Input {...field} disabled className='bg-white' />
+                                <Input {...field} className='bg-white' />
                             </FormControl>
+                            <FormMessage />
                         </FormItem>
                     )} />
                 </div>
