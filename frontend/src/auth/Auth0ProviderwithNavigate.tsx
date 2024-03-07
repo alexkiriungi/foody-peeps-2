@@ -29,7 +29,7 @@ const Auth0ProviderwithNavigate = ({ children }: Props) => {
         }} onRedirectCallback={onRedirectCallback}>
             {children}
         </Auth0Provider>
-    )
+    );
 };
 
 export default Auth0ProviderwithNavigate;
