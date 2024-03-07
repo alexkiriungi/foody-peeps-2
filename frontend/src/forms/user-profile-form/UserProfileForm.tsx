@@ -1,3 +1,5 @@
+import LoadingButton from '@/components/LoadingButton';
+import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -55,6 +57,41 @@ const UserProfileForm = ({ onSave, isLoading}: Props) => {
                         </FormControl>
                     </FormItem>
                 )} />
+                <div className='flex flex-col md:flex-row gap-4'>
+                    <FormField control={form.control} name="addressLine1" 
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel>Address Line 1</FormLabel>
+                            <FormControl>
+                                <Input {...field} disabled className='bg-white' />
+                            </FormControl>
+                        </FormItem>
+                    )} />
+
+                    <FormField control={form.control} name="city" 
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel>City</FormLabel>
+                            <FormControl>
+                                <Input {...field} disabled className='bg-white' />
+                            </FormControl>
+                        </FormItem>
+                    )} />
+
+                    <FormField control={form.control} name="country" 
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormLabel>Country</FormLabel>
+                            <FormControl>
+                                <Input {...field} disabled className='bg-white' />
+                            </FormControl>
+                        </FormItem>
+                    )} />
+                </div>
+
+                {isLoading ? (<LoadingButton />) : (<Button type='submit' className='bg-orange-500'>
+                    Submit
+                </Button>)}
             </form>
         </Form>
     )
