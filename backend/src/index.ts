@@ -4,6 +4,7 @@ import "dotenv/config";
 import mongoose from 'mongoose';
 import myUserRoute from './routes/myUserRoute';
 import myRestaurantRoute from './routes/MyRestaurantRoute';
+import restaurantRoute from './routes/Restaurant.Route'
 import { v2 as cloudinary } from 'cloudinary';
 
 
@@ -24,6 +25,7 @@ app.use(cors());
 
 app.use('/api/my/user', myUserRoute);
 app.use('/api/my/restaurant', myRestaurantRoute);
+app.use('/api/restaurant', restaurantRoute);
 
 
 app.listen(3000, () => {
