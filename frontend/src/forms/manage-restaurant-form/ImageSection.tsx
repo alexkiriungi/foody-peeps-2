@@ -3,7 +3,7 @@ import { Input } from "@/components/ui/input";
 import { useFormContext } from "react-hook-form"
 
 
-export default function imageSection() {
+export default function ImageSection() {
     const { control } = useFormContext();
   return (
     <div className="space-y-2">
