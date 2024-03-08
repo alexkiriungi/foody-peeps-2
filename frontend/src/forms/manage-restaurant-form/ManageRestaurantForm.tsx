@@ -6,7 +6,9 @@ import DetailsSection from './DetailsSection';
 import { Separator } from '@/components/ui/separator';
 import CuisinesSection from './CuisinesSection';
 import MenuSection from './MenuSection';
-import ImageSection from './imageSection';
+import ImageSection from './ImageSection';
+import LoadingButton from '@/components/LoadingButton';
+import { Button } from '@/components/ui/button';
 
 
 const formSchema = z.object({
@@ -28,11 +30,11 @@ const formSchema = z.object({
         invalid_type_error: "must be a valid number",
     }),
     cuisines: z.array(z.string()).nonempty({
-        message: "please select at leats one item",
+        message: "please select at least one item",
     }),
     menuItems: z.array(z.object({
-        name: z.string().min(1, "name is required"),
-        price: z.coerce.number().min(1, "price is required"),
+        name: z.string().min(1, "-name is required"),
+        price: z.coerce.number().min(1, "-price is required"),
     })),
     imageFile: z.instanceof(File, { message: "image is required"}),
 });
@@ -65,6 +67,7 @@ const ManageRestaurantForm = ({ onSave, isLoading }: Props) => {
                 <Separator />
                 <MenuSection />
                 <ImageSection />
+                {isLoading ? <LoadingButton />: <Button type='submit'>Submit</Button>}
             </form>
         </Form>
     )
