@@ -52,7 +52,7 @@ const SearchBar = ({ onSubmit, onReset, placeHolder}: Props) => {
                     )} 
                     />
                 </div>
-                <div className="flex flex-row">
+                <div className="flex flex-row gap-1">
                     {form.formState.isDirty && (
                         <Button onClick={handleReset}
                             type='button' variant="outline"

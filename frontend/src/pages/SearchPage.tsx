@@ -1,4 +1,5 @@
 import { useSearchRestaurants } from "@/api/RestaurantApi";
+import SearchResultInfo from "@/components/SearchResultInfo";
 import { useParams } from "react-router-dom"
 
 
@@ -19,7 +20,9 @@ export default function SearchPage() {
         <div id="cuisines-list" className="">
             Insert cuisines here :
         </div>
-        <div id="main-content" className="flex flex-col gap-5"></div>
+        <div id="main-content" className="flex flex-col gap-5">
+            <SearchResultInfo total={results.pagination.total} city={city} />
+        </div>
     </div>
   );
 };
