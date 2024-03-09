@@ -5,6 +5,7 @@ import { Form, FormField, FormItem } from "./ui/form";
 import { Search } from "lucide-react";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
+import { useEffect } from "react";
 
 const formSchema = z.object({
     searchQuery: z.string({
@@ -18,12 +19,20 @@ type Props = {
     onSubmit: (formData: SearchForm) => void;
     placeHolder: string;
     onReset?: () => void;
+    searchQuery: string;
 };
 
-const SearchBar = ({ onSubmit, onReset, placeHolder}: Props) => {
+const SearchBar = ({ onSubmit, onReset, placeHolder, searchQuery}: Props) => {
     const form = useForm<SearchForm>({
         resolver: zodResolver(formSchema),
+        defaultValues: {
+            searchQuery,
+        }
     });
+
+    useEffect(() => {
+        form.reset({ searchQuery });
+    }, [form, searchQuery]);
 
     const handleReset = () => {
         form.reset({
@@ -33,7 +42,7 @@ const SearchBar = ({ onSubmit, onReset, placeHolder}: Props) => {
 
     if (onReset) {
         onReset();
-    }
+    };
 
     return(
         <Form {...form}>
@@ -52,12 +61,10 @@ const SearchBar = ({ onSubmit, onReset, placeHolder}: Props) => {
                     )} 
                     />
                 </div>
-                <div className="flex flex-row gap-1">
-                    {form.formState.isDirty && (
-                        <Button onClick={handleReset}
-                            type='button' variant="outline"
-                            className="rounded-full">Clear</Button>
-                    )}
+                <div className="flex flex-row gap-1">      
+                    <Button onClick={handleReset}
+                        type='button' variant="outline"
+                        className="rounded-full">Reset</Button>
                     <Button type="submit" className="bg-orange-500 rounded-full">
                         Search
                     </Button>
