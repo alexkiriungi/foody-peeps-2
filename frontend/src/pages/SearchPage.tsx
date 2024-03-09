@@ -1,6 +1,6 @@
 import { useSearchRestaurants } from "@/api/RestaurantApi";
 // import CuisineFilter from "@/components/CuisineFilter";
-// import PaginationSelector from "@/components/PaginationSelector";
+import PaginationSelector from "@/components/PaginationSelector";
 import SearchBar, { SearchForm } from "@/components/SearchBar";
 import SearchResultCard from "@/components/SearchResultCard";
 import SearchResultInfo from "@/components/SearchResultInfo";
@@ -44,12 +44,12 @@ const SearchPage = () => {
 //     }));
 //   };
 
-//   const setPage = (page: number) => {
-//     setSearchState((prevState) => ({
-//       ...prevState,
-//       page,
-//     }));
-//   };
+  const setPage = (page: number) => {
+    setSearchState((prevState) => ({
+      ...prevState,
+      page,
+    }));
+  };
 
   const setSearchQuery = (searchFormData: SearchForm) => {
     setSearchState((prevState) => ({
@@ -105,11 +105,11 @@ const SearchPage = () => {
         {results.data.map((restaurant) => (
           <SearchResultCard restaurant={restaurant} />
         ))}
-        {/* <PaginationSelector
+        <PaginationSelector
           page={results.pagination.page}
           pages={results.pagination.pages}
           onPageChange={setPage}
-        /> */}
+        />
       </div>
     </div>
   );
