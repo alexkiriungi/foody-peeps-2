@@ -21,7 +21,7 @@ export const cuisineList = [
     "IRIO",
     "Mandazi",
     "Nduma",
-    "Kuku Paka",
+    "Rice",
     "Coleslaw",
     "Pork",
     "Chicken",
