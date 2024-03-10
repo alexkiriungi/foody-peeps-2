@@ -66,3 +66,19 @@ export const searchRestaurant = async (req: Request, res: Response) => {
         console.log(error);
         res.status(500).json({ message: "Oops something went wrong"})    }
 };
+
+export const getRestaurant = async (req: Request, res: Response) => {
+    try {
+        const restaurantId = req.params.restaurantId;
+
+        const restaurant = await Restaurant.findById(restaurantId);
+
+        if (!restaurant) {
+            return res.status(404).json({ message: "restaurant not found"})
+        }
+        res.status(200).json(restaurant);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: "Oops something went wrong"});
+    }
+};
