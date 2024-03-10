@@ -5,7 +5,7 @@ type Props = {
     menuItem: MenuItem;
 };
 
-const MenuItem = ({ menuItem }: Props) => {
+const MenuItemDetail = ({ menuItem }: Props) => {
     return(
         <Card className="cursor-pointer">
             <CardHeader>
@@ -18,4 +18,4 @@ const MenuItem = ({ menuItem }: Props) => {
     );
 };
 
-export default MenuItem;
+export default MenuItemDetail;

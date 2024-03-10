@@ -1,5 +1,5 @@
 import { useGetRestaurant } from '@/api/RestaurantApi';
-import MenuItem from '@/components/MenuItem';
+import MenuItemDetail from '@/components/MenuItem';
 import RestaurnatInfo from '@/components/RestaurantInfo';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { useParams } from 'react-router-dom'
@@ -23,7 +23,7 @@ export default function DetailPage() {
                 <RestaurnatInfo restaurant={restaurant} />
                 <span className='text-2xl font-bold tracking-tight'>Menu</span>
                 {restaurant.menuItems.map((menuItem) => (
-                    <MenuItem menuItem={menuItem} />
+                    <MenuItemDetail menuItem={menuItem} />
                 ))}
             </div>
         </div>

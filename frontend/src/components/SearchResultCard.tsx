@@ -18,7 +18,7 @@ const SearchResultCard = ({ restaurant }: Props) => {
                 transition-scale duration-300" />
             </AspectRatio>
             <div className="">
-                <h3 className="text-2xl font-bold tracking-tight groupd-hover:underline">
+                <h3 className="text-2xl font-bold tracking-tight group-hover:underline">
                     {restaurant.restaurantName}
                 </h3>
                 <div id='card-content' className="grid md:grid-cols-2 gap-2">
