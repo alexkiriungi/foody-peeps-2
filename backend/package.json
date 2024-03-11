@@ -23,7 +23,8 @@
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.4.0",
     "mongoose": "^8.2.0",
-    "multer": "^1.4.5-lts.1"
+    "multer": "^1.4.5-lts.1",
+    "stripe": "^14.20.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
