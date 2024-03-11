@@ -9,7 +9,7 @@ import { useParams } from 'react-router-dom'
 import { MenuItem } from '@/types';
 
 
-export type CardItem = {
+export type CartItem = {
     _id: string;
     name: string;
     price: number;
@@ -20,7 +20,7 @@ export default function DetailPage() {
     const { restaurantId } = useParams();
     const { restaurant, isLoading } = useGetRestaurant(restaurantId);
 
-    const [ cartItems, setCartItems ] = useState<CardItem[]>([]);
+    const [ cartItems, setCartItems ] = useState<CartItem[]>([]);
 
     const addToCart = (menuItem: MenuItem) => {
         setCartItems((prevCartItems) => {
@@ -45,6 +45,14 @@ export default function DetailPage() {
         });
     };
 
+    const removeFromCart = (cartItem: CartItem) => {
+        setCartItems((prevCartItems) => {
+            const updatedCartItems = prevCartItems.filter((item) => cartItem._id !== item._id);
+            
+            return updatedCartItems;
+        });
+    };
+
     if (isLoading || !restaurant) {
         return <span className='font-bold text-2xl'>Loading...</span>
     }
@@ -65,7 +73,7 @@ export default function DetailPage() {
             </div>
             <div className="">
                 <Card>
-                    <OrderSummary restaurant={restaurant} cartItems={cartItems} />
+                    <OrderSummary restaurant={restaurant} cartItems={cartItems} removeFromCart={removeFromCart} />
                 </Card>
             </div>
         </div>
