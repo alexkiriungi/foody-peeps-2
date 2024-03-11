@@ -25,6 +25,7 @@ export const useGetMyOrders = (): Promise<Order[]> => {
 
     const { data: orders, isLoading } = useQuery("fetchMyOrders", getMyOrdersRequest);
 
+        // @ts-expect-error
     return { orders, isLoading };
 }
 
