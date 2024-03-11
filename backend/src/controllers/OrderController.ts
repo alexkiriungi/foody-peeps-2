@@ -62,7 +62,7 @@ const createLineItems = (checkOutSessionRequest: CheckOutSessionRequest, menuIte
 
         const line_item: Stripe.Checkout.SessionCreateParams.LineItem = {
             price_data: {
-                currency: "ksh",
+                currency: "usd",
                 unit_amount: menuItem.price,
                 product_data: {
                     name: menuItem.name,
@@ -91,7 +91,7 @@ const createSession = async (
                         type: "fixed_amount",
                         fixed_amount: {
                             amount: deliveryPrice,
-                            currency: "ksh",
+                            currency: "usd",
                         },
                     },
                 },
