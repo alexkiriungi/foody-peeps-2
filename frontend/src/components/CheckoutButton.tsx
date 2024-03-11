@@ -51,6 +51,8 @@ export default function CheckoutButton({onCheckout, disabled}: Props) {
                 <UserProfileForm 
                     currentUser={currentUser} 
                     onSave={onCheckout} 
+                    title="Confirm Delivery Details"
+                    buttonText="Continue to payment"
                     isLoading={isGetUserLoading} />
             </DialogContent>
         </Dialog>
