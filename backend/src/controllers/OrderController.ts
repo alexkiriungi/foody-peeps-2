@@ -21,6 +21,10 @@ type CheckOutSessionRequest = {
     restaurantId: string;
 };
 
+export const stripeWebhookHandler = async (req: Request, res: Response) => {
+    console.log
+};
+
 export const createCheckOutSession = async (req: Request, res: Response) => {
     try {
         const checkoutSessionRequest: CheckOutSessionRequest = req.body;
@@ -116,3 +120,5 @@ const createSession = async (
         });
         return sessionData;
     };
+
+
