@@ -16,16 +16,16 @@ const formSchema = z.object({
     country: z.string().min(3, 'Country is required')
 });
 
-type userFormData = z.infer<typeof formSchema>;
+export type UserFormData = z.infer<typeof formSchema>;
 
 type Props = {
     currentUser: User;
-    onSave: (userProfileData: userFormData) => void;
+    onSave: (userProfileData: UserFormData) => void;
     isLoading: boolean;
 }
 
 const UserProfileForm = ({ onSave, isLoading, currentUser}: Props) => {
-    const form = useForm<userFormData>({
+    const form = useForm<UserFormData>({
         resolver: zodResolver(formSchema),
         defaultValues: currentUser,
     });
