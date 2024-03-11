@@ -13,7 +13,7 @@ const OrderSummary = ({ restaurant, cartItems }: Props) =>{
 
     const getTotalCost = () => {
         const totalInKsh = cartItems.reduce((total, cartItem) => total + cartItem.price * cartItem.quantity, 0);
-        const totalwithDelivery = totalInKsh + restaurant.deliveryPrice;
+        const totalwithDelivery = totalInKsh + +restaurant.deliveryPrice;
 
         return totalwithDelivery;
     };
