@@ -99,7 +99,7 @@ export const getMyRestaurantOrder = async (req: Request, res: Response) => {
 
 export const updateOrderStatus = async (req: Request, res:Response) => {
     try {
-        const { orderId } = req.body.params;
+        const { orderId } = req.params;
         const { status } = req.body;
 
         const order = await Order.findById(orderId);
