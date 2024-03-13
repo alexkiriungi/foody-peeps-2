@@ -11,7 +11,7 @@ export default function ManageRestaurantPage() {
   const { updateRestaurant, isLoading: isUpdateLoading } = useupdateMyRestaurant();
   const { orders } = useGetMyRestaurantOrders();
 
-  const isEditing =!!restaurant;
+  const isEditing = !!restaurant;
   return (
     <Tabs defaultValue="orders">
       <TabsList>
